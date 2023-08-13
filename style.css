@@ -1,0 +1,479 @@
+body {
+    font-size: 1, 6rem;
+    font-weight: 400;
+    font-family: 'Roboto Serif', serif;
+    display: grid;
+    grid-template-areas: "header header header header "
+        "hero hero hero hero "
+        "about about about about "
+        " services services services services"
+        "projects projects projects projects"
+        "footer footer footer footer ";
+
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+.header {
+    grid-area: header;
+
+}
+.header input{
+    display: none;
+}
+
+.header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* min-height: 75px; */
+    padding: 20px 20px;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    transition: 0.5s;
+
+
+}
+
+.header a:hover h1 {
+    color: coral;
+
+}
+
+.header nav ul {
+    display: flex;
+}
+
+.header nav ul li a {
+    margin-left: 30px;
+    border-radius: 50px;
+    font-size: 2rem;
+    font-weight: 600;
+    padding: 10px 30px;
+    transition: 0.5s ease-in-out;
+    text-transform: capitalize;
+}
+
+.header nav ul li a:hover {
+    color: white;
+    background-color: coral;
+}
+
+
+.header input {
+    display: none;
+}
+
+.header .menu {
+    display: none;
+    width: 65px;
+    height: 60px;
+}
+
+.header .hamburguer {
+    background-color: #000;
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    top: 25px;
+    left: 15px;
+    transition: 0.5s ease-in-out;
+}
+
+.header .hamburguer::before,
+.header .hamburguer::after {
+    background-color: #000;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: " ";
+    transition: 0.2s ease-in-out;
+}
+
+.header .hamburguer::before {
+    top: -9px;
+}
+
+.header .hamburguer::after {
+    bottom: -9px;
+}
+
+.header input:checked ~ label .hamburguer{
+    transform: rotateY(45deg);
+} 
+
+.header input:checked ~ label .hamburguer::before{
+    transform: rotate(140deg);
+    top: 0;
+} 
+
+.header input:checked ~ label .hamburguer::after{
+    transform: rotate(40deg);
+    bottom: 0;
+} 
+
+
+@media (max-width: 900px) {
+    .header .menu  {
+        display: block;
+    }
+
+    .header nav ul{
+        display: none;
+    }
+
+    .header input:checked ~ ul {
+        display: block;
+    }
+
+    .header nav  {
+        position: absolute;
+        right: 0;
+        top: 8px;
+        z-index: 1;
+        background-color: #fff;
+    }
+
+    .header ul {
+        box-shadow: -3px 7px 5px 1px rgba(0, 0, 0, 0.034);
+    }
+
+    .header ul li {
+        display: block;
+        text-align: center;
+        width: 180px;
+        padding: 20px;
+    }
+    
+    .header .links a {
+        margin-left: 0px;
+    }
+    
+    .header label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header label div {
+        align-self: flex-end;
+    }
+}
+
+
+.hero {
+    grid-area: hero;
+    height: 89vh;
+    background: url(src/imagem/lemons.jpg) center center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    
+}
+
+h2 {
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 4rem;
+}
+.hero::after{
+    content:url(src/imagem/seta_preta.png);
+    position: absolute;
+    height: 35px;
+    bottom: 40px;
+    animation: downarrow 0.7s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes downarrow {
+    0% {
+        -webkit-transform: translateY(0);
+    }
+
+    100% {
+        -webkit-transform: translateY(0.4em);
+        opacity: 0.4;
+    }
+}
+    .hero {
+        height: 82vh;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        
+    }
+    @media(max-width:600px){
+    .hero:hover h2{
+       color: coral;
+       
+       transition: 0.8s;
+       border:  solid 1px;
+        border-radius: 10px;
+
+    }
+}
+
+
+.about {
+    display: grid;
+    grid-area: about;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2;
+    background-color: #fff;
+    max-width: var(--max-width-size);
+    margin: 0 auto;
+}
+
+.about .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 20%;
+}
+
+.about .item h3 {
+    font-weight: 600;
+    font-size: 2.2rem;
+}
+
+.about .item p {
+    margin: 25px 0;
+    font-weight: 400;
+    font-size: 1.8rem;
+}
+
+.about .item a {
+    align-self: flex-start;
+}
+
+.about .item .btn {
+    font-weight: 400;
+}
+
+.about .item a:hover {
+    font-weight: 700;
+}
+
+.about .image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+.about .image.right {
+    background: url(src/imagem/bridge.jpg) center center no-repeat;
+
+}
+
+.about .image.left {
+    background: url(src/imagem/sky.jpg) center center no-repeat;
+}
+
+@media (max-width: 768px) {
+    .about .item {
+        text-align: center;
+    }
+
+    .about .item a {
+        align-self: center;
+    }
+}
+
+@media (max-width: 525px) {
+    .about {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+    }
+}
+
+.services {
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.services .service {
+    padding: 7rem 2rem;
+}
+
+.services .service img {
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.services .service p {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 25px;
+    max-width: 400px;
+    margin: 20px auto 0;
+}
+
+.services .service h3 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.services .service:nth-child(1) {
+    background: blueviolet;
+}
+
+.services .service:nth-child(2) {
+    background-color: lightpink;
+}
+
+@media (max-width: 450px) {
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
+
+.projects {
+    grid-area: projects;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.projects .project img {
+    height: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+
+
+.projects .project a:hover img {
+    opacity: 0.8;
+}
+img{
+    max-width: 100%;
+}
+
+.footer{
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 0;
+    background-color: lightgreen;
+}
+.footer h4{
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    
+}
+nav ul{
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    margin-right: 320px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+.footer nav ul li a{
+    margin: 20px;
+    font-weight: 500;
+    font-size: 2rem;
+    text-transform: capitalize;
+    
+
+
+}
+.footer nav ul li a:hover{
+    color: #fff;
+    font-weight: 700;
+}
+.social i{
+    font-size: 2rem;
+    
+}
+.footer .social a:hover{
+    color: #fff;
+}
+.footer .social a{
+    margin: 20px;
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .services {
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+}
+
+.services .service {
+    padding: 7rem 2rem;
+}
+
+.services .service img {
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.services .service p {
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 25px;
+    max-width: 400px;
+    margin: 20px auto 0;
+}
+
+.services .service h3 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.services .service:nth-child(1) {
+    background: blueviolet;
+}
+
+.services .service:nth-child(2) {
+    background-color: lightpink;
+} */
